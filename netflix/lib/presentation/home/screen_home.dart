@@ -3,7 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:netflix/core/constants.dart';
 import 'package:netflix/presentation/widgets/main_card.dart';
 
-ValueNotifier<bool> scrollDetection = ValueNotifier(false);
+ValueNotifier<bool> scrollDetection = ValueNotifier(true);
 
 class ScreenHome extends StatelessWidget {
   const ScreenHome({Key? key}) : super(key: key);
