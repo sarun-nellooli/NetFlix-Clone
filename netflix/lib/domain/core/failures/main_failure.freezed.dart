@@ -12,7 +12,23 @@ part of 'main_failure.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
+/// @nodoc
+class _$MainFailureTearOff {
+  const _$MainFailureTearOff();
+
+  _ClientFalures clientFailure() {
+    return const _ClientFalures();
+  }
+
+  _ServerFailure serverFailure() {
+    return const _ServerFailure();
+  }
+}
+
+/// @nodoc
+const $MainFailure = _$MainFailureTearOff();
 
 /// @nodoc
 mixin _$MainFailure {
@@ -73,22 +89,21 @@ class _$MainFailureCopyWithImpl<$Res> implements $MainFailureCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$$_ClientFaluresCopyWith<$Res> {
-  factory _$$_ClientFaluresCopyWith(
-          _$_ClientFalures value, $Res Function(_$_ClientFalures) then) =
-      __$$_ClientFaluresCopyWithImpl<$Res>;
+abstract class _$ClientFaluresCopyWith<$Res> {
+  factory _$ClientFaluresCopyWith(
+          _ClientFalures value, $Res Function(_ClientFalures) then) =
+      __$ClientFaluresCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_ClientFaluresCopyWithImpl<$Res>
-    extends _$MainFailureCopyWithImpl<$Res>
-    implements _$$_ClientFaluresCopyWith<$Res> {
-  __$$_ClientFaluresCopyWithImpl(
-      _$_ClientFalures _value, $Res Function(_$_ClientFalures) _then)
-      : super(_value, (v) => _then(v as _$_ClientFalures));
+class __$ClientFaluresCopyWithImpl<$Res> extends _$MainFailureCopyWithImpl<$Res>
+    implements _$ClientFaluresCopyWith<$Res> {
+  __$ClientFaluresCopyWithImpl(
+      _ClientFalures _value, $Res Function(_ClientFalures) _then)
+      : super(_value, (v) => _then(v as _ClientFalures));
 
   @override
-  _$_ClientFalures get _value => super._value as _$_ClientFalures;
+  _ClientFalures get _value => super._value as _ClientFalures;
 }
 
 /// @nodoc
@@ -104,7 +119,7 @@ class _$_ClientFalures implements _ClientFalures {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_ClientFalures);
+        (other.runtimeType == runtimeType && other is _ClientFalures);
   }
 
   @override
@@ -178,22 +193,21 @@ abstract class _ClientFalures implements MainFailure {
 }
 
 /// @nodoc
-abstract class _$$_ServerFailureCopyWith<$Res> {
-  factory _$$_ServerFailureCopyWith(
-          _$_ServerFailure value, $Res Function(_$_ServerFailure) then) =
-      __$$_ServerFailureCopyWithImpl<$Res>;
+abstract class _$ServerFailureCopyWith<$Res> {
+  factory _$ServerFailureCopyWith(
+          _ServerFailure value, $Res Function(_ServerFailure) then) =
+      __$ServerFailureCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_ServerFailureCopyWithImpl<$Res>
-    extends _$MainFailureCopyWithImpl<$Res>
-    implements _$$_ServerFailureCopyWith<$Res> {
-  __$$_ServerFailureCopyWithImpl(
-      _$_ServerFailure _value, $Res Function(_$_ServerFailure) _then)
-      : super(_value, (v) => _then(v as _$_ServerFailure));
+class __$ServerFailureCopyWithImpl<$Res> extends _$MainFailureCopyWithImpl<$Res>
+    implements _$ServerFailureCopyWith<$Res> {
+  __$ServerFailureCopyWithImpl(
+      _ServerFailure _value, $Res Function(_ServerFailure) _then)
+      : super(_value, (v) => _then(v as _ServerFailure));
 
   @override
-  _$_ServerFailure get _value => super._value as _$_ServerFailure;
+  _ServerFailure get _value => super._value as _ServerFailure;
 }
 
 /// @nodoc
@@ -209,7 +223,7 @@ class _$_ServerFailure implements _ServerFailure {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_ServerFailure);
+        (other.runtimeType == runtimeType && other is _ServerFailure);
   }
 
   @override
