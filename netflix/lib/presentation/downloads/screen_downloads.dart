@@ -1,19 +1,22 @@
 import 'dart:math';
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:netflix/application/downloads/bloc/downloads_bloc.dart';
 import 'package:netflix/core/constants.dart';
+import 'package:netflix/core/strings.dart';
 import 'package:netflix/presentation/widgets/app_bar_widget.dart';
 
 class ScreenDownloads extends StatelessWidget {
-  ScreenDownloads({Key? key}) : super(key: key);
-  final List imageList = [
-    'https://image.tmdb.org/t/p/w500/kk28Lk8oQBGjoHRGUCN2vxKb4O2.jpg',
-    'https://image.tmdb.org/t/p/w300_and_h450_bestv2/aBkVgChtyyJaHyZh1gfd8DbzQon.jpg',
-    'https://image.tmdb.org/t/p/w300_and_h450_bestv2/cdkyMYdu8ao26XOBvilNzLneUg1.jpg'
-  ];
+  const ScreenDownloads({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
+    // WidgetsBinding.instance!.addPostFrameCallback((_) {
+
+    // });
+    BlocProvider.of<DownloadsBloc>(context)
+        .add(const DownloadsEvent.getDownloadsImage());
     final Size size = MediaQuery.of(context).size;
 
     return Scaffold(
@@ -59,37 +62,39 @@ class ScreenDownloads extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
           ),
-          SizedBox(
-            width: size.width,
-            height: size.width,
-            child: Stack(
-              alignment: Alignment.center,
-              children: [
-                Center(
-                  child: CircleAvatar(
-                    radius: size.width * .35,
-                    backgroundColor: Colors.grey.withOpacity(0.45),
-                  ),
+          BlocBuilder<DownloadsBloc, DownloadsState>(
+            builder: (context, state) {
+              return SizedBox(
+                width: size.width,
+                height: size.width,
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    Center(
+                      child: CircleAvatar(
+                        radius: size.width * .35,
+                        backgroundColor: Colors.grey.withOpacity(0.45),
+                      ),
+                    ),
+                    const DownloadsImage(
+                      imageList: '$kimageUrl/gt9s8TtZZ36TXF1CE1y19rSpOZu.jpg',
+                      angle: 25,
+                      margin: EdgeInsets.only(left: 200),
+                    ),
+                    const DownloadsImage(
+                      imageList: '$kimageUrl/opTwqTgREzvP67ERVrqt0ApXbeV.jpg',
+                      angle: -25,
+                      margin: EdgeInsets.only(right: 200),
+                    ),
+                    const DownloadsImage(
+                      imageList: '$kimageUrl/wKiOkZTN9lUUUNZLmtnwubZYONg.jpg',
+                      angle: 0,
+                      margin: EdgeInsets.only(right: 0),
+                    ),
+                  ],
                 ),
-                DownloadsImage(
-                  imageList: imageList[1],
-                  angle: 25,
-                  margin: const EdgeInsets.only(left: 200),
-                ),
-                DownloadsImage(
-                  imageList: imageList[2],
-                  angle: -25,
-                  margin: const EdgeInsets.only(right: 200),
-                ),
-                Container(
-                  width: size.width * .6,
-                  height: size.width * .60,
-                  decoration: BoxDecoration(
-                      image:
-                          DecorationImage(image: NetworkImage(imageList[0]))),
-                ),
-              ],
-            ),
+              );
+            },
           ),
           Column(
             children: [
